@@ -1,6 +1,9 @@
 package com.RESTAPI.RESTAPIEXAMPLE.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Employee_Tbl")
@@ -8,10 +11,16 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  long empId;
+    @NotEmpty(message = "Please Enter Employee Name")
     private  String empName;
+    @NotEmpty(message = "Please Enter Employee LastName")
     private  String empSirname;
+    @NotEmpty(message = "Please Enter City")
     private  String empCity;
+    @NotEmpty(message = "Please Enter Email")
+    @Email
     private  String empEmail;
+    @NotNull(message = "Salary Not Null")
     private  double empsalary;
 
     public Employee(long empId, String empName, String empSirname, String empCity, String empEmail, double empsalary) {

@@ -2,6 +2,7 @@ package com.RESTAPI.RESTAPIEXAMPLE.controller;
 
 import com.RESTAPI.RESTAPIEXAMPLE.model.Employee;
 import com.RESTAPI.RESTAPIEXAMPLE.services.EmployeeServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class EmployeeController {
     private EmployeeServiceImpl employeeService;
 
     @PostMapping
-    public ResponseEntity<Employee> saveEmployeeData(@RequestBody Employee employee){
+    public ResponseEntity<Employee> saveEmployeeData(@RequestBody @Valid Employee employee){
         return  new ResponseEntity<Employee>(employeeService.employeeSave(employee),HttpStatus.CREATED);
     }
 
