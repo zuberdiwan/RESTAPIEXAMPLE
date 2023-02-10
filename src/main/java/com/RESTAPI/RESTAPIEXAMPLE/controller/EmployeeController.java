@@ -28,11 +28,14 @@ public class EmployeeController {
 
     @GetMapping("{id}")
     public  ResponseEntity<Employee> getEmployeeById(@PathVariable("id") long id){
+
+
         return  new ResponseEntity<Employee>(employeeService.getEmployeeById(id),HttpStatus.OK);
     }
 
     @PutMapping("{empId}")
     public  ResponseEntity<Employee> updateEmployeeData(@PathVariable("empId") long empId,@RequestBody Employee employee){
+
         return  new ResponseEntity<Employee>(employeeService.updateEmployee(employee,empId),HttpStatus.OK);
     }
 
